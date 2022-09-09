@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'package:wallet_app/main.dart';
+import 'package:wallet_app/pages/add_carts_page.dart';
 import 'package:wallet_app/util/my_button.dart';
 import 'package:wallet_app/util/my_card.dart';
 import 'package:wallet_app/util/my_list_tile.dart';
@@ -23,7 +24,7 @@ class _HomePageState extends State<HomePage> {
       backgroundColor: Colors.grey[300],
       floatingActionButton: FloatingActionButton(
         onPressed: () {},
-        backgroundColor: Colors.green,
+        backgroundColor: Colors.greenAccent,
         child: Icon(Icons.monetization_on, size: 32,),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
@@ -76,12 +77,20 @@ class _HomePageState extends State<HomePage> {
                       shape: BoxShape.circle,
                       color: Colors.grey[400]
                     ),
-                    child: Icon(Icons.add),
+                    child: IconButton(
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => const AddCartPage()),
+                        );
+                      },
+                      icon: Icon(Icons.add),
+                    ),
                   )
                 ],
               ),
             ),
-            SizedBox(height: 25,),
+            SizedBox(height: 15,),
             
 
             Container(
@@ -115,7 +124,7 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
 
-            SizedBox(height: 25,),
+            SizedBox(height: 15,),
 
             SmoothPageIndicator(
               controller: _controller, 
@@ -123,7 +132,7 @@ class _HomePageState extends State<HomePage> {
               effect: ExpandingDotsEffect(),
             ),
 
-            SizedBox(height: 25,),
+            SizedBox(height: 15,),
 
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
